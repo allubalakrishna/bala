@@ -4,7 +4,7 @@ class ArtistsController < ApplicationController
   respond_to :html
 
   def index
-    @artists = Artist.all
+    @artists = Artist.all    
     uri = URI("https://randomuser.me/api/?results=#{@artists.size}")
     @response = JSON.parse(Net::HTTP.get(uri))
     respond_to do |format|
@@ -68,4 +68,8 @@ class ArtistsController < ApplicationController
   def artist_params
     params.require(:artist).permit(:name)
   end
+
+
+
+  
 end
