@@ -5,11 +5,17 @@ class PublishersController < ApplicationController
 
   def index
     @publishers = Publisher.all
-    respond_with(@publishers)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def show
-    respond_with(@publisher)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def new
@@ -23,25 +29,34 @@ class PublishersController < ApplicationController
   def create
     @publisher = Publisher.new(publisher_params)
     @publisher.save
-    respond_with(@publisher)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def update
     @publisher.update(publisher_params)
-    respond_with(@publisher)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def destroy
     @publisher.destroy
-    respond_with(@publisher)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   private
-    def set_publisher
-      @publisher = Publisher.find(params[:id])
-    end
+  def set_publisher
+    @publisher = Publisher.find(params[:id])
+  end
 
-    def publisher_params
-      params.require(:publisher).permit(:name, :address, :city, :state, :zip, :phone, :url)
-    end
+  def publisher_params
+    params.require(:publisher).permit(:name, :address, :city, :state, :zip, :phone, :url)
+  end
 end

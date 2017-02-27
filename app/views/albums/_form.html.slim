@@ -12,13 +12,18 @@
   .form-group
     = f.label :publisher_id, class: 'control-label col-lg-2'
     .col-lg-10
-      = f.text_field :publisher_id, class: 'form-control'
+      = f.select "publisher_id", options_from_collection_for_select(@publishers, "id", "publisher_record", @album.publisher_id), include_blank: true
       = f.error_span(:publisher_id)
   .form-group
     = f.label :released_on, class: 'control-label col-lg-2'
     .col-lg-10
       = f.text_field :released_on, class: 'form-control'
       = f.error_span(:released_on)
+  .form-group
+    = f.label :is_sale, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.select :is_sale, options_for_select([ false, true ], @album.is_sale), class: 'form-control'
+      = f.error_span(:is_sale)
   hr
   .form-group
     .col-lg-offset-2.col-lg-10

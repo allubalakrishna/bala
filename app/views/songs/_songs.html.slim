@@ -1,0 +1,14 @@
+table.table.table-striped
+  thead
+    tr
+      th name
+      th album
+      th artist
+      th delete
+  tbody
+    - @songs.each do |song|
+      tr
+        td= link_to song.name, song
+        td= song.album.name
+        td= song.artist.name
+        td= link_to 'Delete', song, method: "delete", remote: true, class: 'btn btn-danger'

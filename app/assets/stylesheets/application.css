@@ -37,3 +37,6 @@
    width: 100%;
    color: #fff;
  }
+.table.table-striped thead{
+    background-color: #9B59B6;
+}

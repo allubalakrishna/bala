@@ -26,7 +26,7 @@ html lang="en"
         .navbar-collapse.collapse.navbar-responsive-collapse
           ul.nav.navbar-nav
             li= link_to "Publishers", publishers_path
-            li= link_to "Albums", albums_path
+            li= link_to "Albums", album_path(latest_album.first.id)
             li= link_to "Artists", artists_path
 
     .container
@@ -48,7 +48,8 @@ html lang="en"
           .col-md-2
             ul
               li LATEST
-              li ~
+              li= latest_album.first.name
+              li= latest_album.second.name
           .col-md-2
             ul
               li OUR TEAM
